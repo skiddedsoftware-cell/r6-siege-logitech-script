@@ -4,8 +4,8 @@
 
 EnableScript = true
 MULTIPLIER = 0.00223
-SENSITIVITY = 3 -- Reduced from 53 for slower pull
-DelayRate = 20 -- Increased from 7 for slower speed
+SENSITIVITY = 2 -- Adjust for smoothness
+DelayRate = 5 -- Lower delay = smoother movement
 
 EnablePrimaryMouseButtonEvents(true)
 
@@ -16,6 +16,8 @@ function OnEvent(event, arg)
                 if IsMouseButtonPressed(1) then -- Left mouse button
                     MoveMouseRelative(0, SENSITIVITY) -- Move DOWN for recoil control
                     Sleep(DelayRate)
+                else
+                    Sleep(5)
                 end
             until not IsMouseButtonPressed(3)
         end
