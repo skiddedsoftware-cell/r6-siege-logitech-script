@@ -6,6 +6,7 @@ EnableScript = true
 MULTIPLIER = 0.00223
 SENSITIVITY = 2 -- Adjust for smoothness
 DelayRate = 5 -- Lower delay = smoother movement
+HORIZONTAL = 1 -- Adjust this value to pull right more or less
 
 EnablePrimaryMouseButtonEvents(true)
 
@@ -14,7 +15,7 @@ function OnEvent(event, arg)
         if IsMouseButtonPressed(3) then -- Right mouse button
             repeat
                 if IsMouseButtonPressed(1) then -- Left mouse button
-                    MoveMouseRelative(0, SENSITIVITY) -- Move DOWN for recoil control
+                    MoveMouseRelative(HORIZONTAL, SENSITIVITY) -- Move RIGHT and DOWN for recoil control
                     Sleep(DelayRate)
                 else
                     Sleep(5)
