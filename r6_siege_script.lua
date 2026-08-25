@@ -4,20 +4,18 @@
 
 EnableScript = true
 MULTIPLIER = 0.00223
-SENSITIVITY = 53
-DelayRate = 7 -- in milliseconds
+SENSITIVITY = 3 -- Reduced from 53 for slower pull
+DelayRate = 20 -- Increased from 7 for slower speed
 
 EnablePrimaryMouseButtonEvents(true)
 
 function OnEvent(event, arg)
     if EnableScript ~= false then
-        if IsMouseButtonPressed(3) then -- Right mouse button (arg 3)
+        if IsMouseButtonPressed(3) then -- Right mouse button
             repeat
-                if IsMouseButtonPressed(1) then -- Left mouse button (arg 1)
-                    repeat
-                        MoveMouseRelative(0, SENSITIVITY) -- Move DOWN for recoil control
-                        Sleep(DelayRate)
-                    until not IsMouseButtonPressed(1)
+                if IsMouseButtonPressed(1) then -- Left mouse button
+                    MoveMouseRelative(0, SENSITIVITY) -- Move DOWN for recoil control
+                    Sleep(DelayRate)
                 end
             until not IsMouseButtonPressed(3)
         end
